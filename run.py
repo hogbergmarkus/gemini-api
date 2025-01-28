@@ -21,6 +21,7 @@ google_search_tool = Tool(
 response = client.models.generate_content(
     model=model_id,
     contents="Find the latest articles about DeepSeek " + formatted_date + ", and summarize the 5 latest articles.",
+    # The formatted_date is included in the contents string to ensure the search is for the latest articles as of today.
     config=GenerateContentConfig(
         tools=[google_search_tool],
         response_modalities=["TEXT"]

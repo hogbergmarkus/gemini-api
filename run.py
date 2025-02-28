@@ -27,6 +27,3 @@ response = client.models.generate_content(
         response_modalities=["TEXT"]
     )
 )
-
-for each in response.candidates[0].content.parts:
-    print(each.text)

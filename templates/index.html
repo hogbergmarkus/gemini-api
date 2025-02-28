@@ -10,17 +10,33 @@
       crossorigin="anonymous"
     />
     <title>Gemini API Query</title>
+    <style>
+      .center-container {
+        height: 100vh;
+      }
+    </style>
   </head>
   <body>
-    <h1>Gemini API Query</h1>
-    <form method="post">
-      <label for="query">Enter your query:</label><br />
-      <textarea id="query" name="query" rows="4" cols="50">{{ query }}</textarea
-      ><br /><br />
-      <input type="submit" value="Submit" />
-    </form>
-    <h2>Response:</h2>
-    <pre>{{ result }}</pre>
+    <div
+      class="container d-flex justify-content-center align-items-center center-container"
+    >
+      <div class="w-50">
+        <h1 class="text-center">Gemini API Query</h1>
+        <form method="post">
+          <div class="mb-3">
+            <label for="query" class="form-label">Enter your query:</label>
+            <textarea id="query" name="query" class="form-control" rows="4">
+{{ query }}</textarea
+            >
+          </div>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+        <h2 class="mt-4">Response:</h2>
+        <pre>{{ result }}</pre>
+      </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

@@ -17,6 +17,10 @@
       pre {
         white-space: pre-wrap; /* Wrap text */
         word-wrap: break-word; /* Break long words */
+        padding: 1rem; /* Add padding */
+        border: 1px solid #dee2e6; /* Add border */
+        border-radius: 0.25rem; /* Add border radius */
+        background-color: #f8f9fa; /* Add background color */
       }
     </style>
   </head>
@@ -26,23 +30,43 @@
     >
       <div class="w-50">
         <h1 class="text-center">Gemini API Query</h1>
-        <form method="post">
+        <form method="post" onsubmit="showSpinner()">
           <div class="mb-3">
-            <label for="query" class="form-label">Enter your query:</label>
-            <textarea id="query" name="query" class="form-control" rows="4">
+            <label for="query" class="form-label visually-hidden"
+              >Enter your query:</label
+            >
+            <textarea
+              id="query"
+              name="query"
+              class="form-control"
+              rows="4"
+              placeholder="Enter your query"
+            >
 {{ query }}</textarea
             >
           </div>
-          <div class="d-grid">
+          <div class="d-grid mb-3">
             <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </form>
-        <h2 class="mt-4">Response:</h2>
-        <div class="d-flex flex-column align-items-stretch">
-          <pre class="flex-grow-1">{{ result }}</pre>
+        <div id="spinner" class="d-none text-center mt-4">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <div class="card mt-4">
+          <div class="card-body">
+            <h5 class="card-title visually-hidden">Response:</h5>
+            <pre class="card-text">{{ result | safe }}</pre>
+          </div>
         </div>
       </div>
     </div>
+    <script>
+      function showSpinner() {
+        document.getElementById("spinner").classList.remove("d-none");
+      }
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

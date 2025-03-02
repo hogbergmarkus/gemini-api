@@ -26,7 +26,7 @@ def index():
                 response_modalities=["TEXT"]
             )
         )
-        result = "\n".join([f"<p>{part.text}</p>" for part in response.candidates[0].content.parts])
+        result = "\n\n".join([f"{part.text.replace('<p>', '').replace('</p>', '').replace('**', '')}" for part in response.candidates[0].content.parts])
         return render_template('index.html', query=query, result=result)
     return render_template('index.html', query='', result='')
 

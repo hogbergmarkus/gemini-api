@@ -35,7 +35,7 @@
     >
       <div class="w-50">
         <h1 class="text-center">Gemini API Query</h1>
-        <form method="post" onsubmit="showSpinner()" class="mt-5">
+        <form method="post" action="/" onsubmit="showSpinner()" class="mt-5">
           <div class="mb-3">
             <label for="query" class="form-label visually-hidden"
               >Enter your query:</label
@@ -46,6 +46,7 @@
               class="form-control"
               rows="4"
               placeholder="Enter your query..."
+              required
             >
 {{ query }}</textarea
             >
